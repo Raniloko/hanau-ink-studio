@@ -56,17 +56,17 @@ function Index() {
           <p className="mt-5 max-w-xl text-[0.8rem] leading-relaxed text-muted-foreground sm:text-base">
             {t.hero.text}
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-8 flex items-center justify-center gap-3">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-foreground px-5 py-3 font-display text-[0.7rem] uppercase tracking-[0.2em] text-background transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 bg-foreground px-4 py-3 font-display text-[0.6rem] uppercase tracking-[0.15em] text-background sm:px-5 sm:text-[0.7rem] transition-transform hover:-translate-y-0.5"
             >
               {t.hero.ctaPrimary}
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/gallery"
-              className="inline-flex items-center gap-2 border border-border px-5 py-3 font-display text-[0.7rem] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary hover:text-primary"
+              className="inline-flex items-center gap-2 border border-border px-4 py-3 font-display text-[0.6rem] uppercase tracking-[0.15em] text-foreground sm:px-5 sm:text-[0.7rem] transition-colors hover:border-primary hover:text-primary"
             >
               {t.hero.ctaSecondary}
             </Link>
