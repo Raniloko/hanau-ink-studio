@@ -1,5 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Biohazard, Hand, Lock } from "lucide-react";
 
 import heroAsset from "@/assets/studio-hero.png.asset.json";
 import { Logo } from "@/components/site/Logo";
