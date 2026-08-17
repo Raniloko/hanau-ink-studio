@@ -10,6 +10,10 @@ import { useLanguage } from "@/i18n/LanguageProvider";
 import { STUDIO } from "@/i18n/translations";
 import { GALLERY } from "@/lib/gallery";
 
+// Bild-Zuordnung zu den Styles: Blackwork, Lettering, Fineline, Realistic, Chicano, Cover-Up
+const STYLE_IMAGES = [GALLERY[4], GALLERY[2], GALLERY[5], GALLERY[1], GALLERY[0], GALLERY[3]];
+
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -129,19 +133,34 @@ function Index() {
             <SectionHeading kicker={t.styles.kicker} title={t.styles.title} text={t.styles.text} />
           </Reveal>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {t.styles.items.map((item, index) => (
-              <Reveal key={item.name} delay={index * 90}>
-                <div className="sheen lift group h-full border border-border bg-card p-6">
-                  <span className="font-display text-[0.6rem] uppercase tracking-[0.3em] text-primary">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-4 font-gothic text-3xl text-foreground transition-colors group-hover:text-primary">
-                    {item.name}
-                  </h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{item.text}</p>
-                </div>
-              </Reveal>
-            ))}
+            {t.styles.items.map((item, index) => {
+              const image = STYLE_IMAGES[index] ?? GALLERY[index % GALLERY.length]!;
+              return (
+                <Reveal key={item.name} delay={index * 90}>
+                  <div className="sheen lift group h-full overflow-hidden border border-border bg-card">
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <img
+                        src={image.url}
+                        alt={image.alt}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <span className="absolute inset-0 bg-[linear-gradient(180deg,transparent_45%,color-mix(in_oklab,var(--ink)_55%,transparent)_100%)]" />
+                    </div>
+                    <div className="p-6">
+                      <span className="font-display text-[0.6rem] uppercase tracking-[0.3em] text-primary">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="mt-4 font-gothic text-3xl text-foreground transition-colors group-hover:text-primary">
+                        {item.name}
+                      </h3>
+                      <p className="mt-3 text-sm text-muted-foreground">{item.text}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
+
           </div>
         </div>
       </section>
