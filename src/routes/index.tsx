@@ -178,18 +178,18 @@ function Index() {
               "linear-gradient(180deg, var(--background) 0%, color-mix(in oklab, var(--primary) 88%, var(--ink)) 18%, color-mix(in oklab, var(--primary) 70%, var(--ink)) 82%, var(--background) 100%)",
           }}
         />
-        <div className="relative mx-auto flex max-w-6xl flex-col items-start gap-6 px-5 py-20 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h2 className="font-display text-2xl uppercase tracking-tight text-on-dark sm:text-3xl">
+        <div className="relative mx-auto flex max-w-6xl flex-col items-start gap-6 px-5 py-24 sm:flex-row sm:items-center sm:justify-between">
+          <Reveal>
+            <h2 className="font-display text-2xl uppercase tracking-tight text-on-dark sm:text-4xl">
               {t.hero.ctaPrimary}
             </h2>
             <p className="mt-2 text-sm text-on-dark-muted">
               {STUDIO.street}, {STUDIO.zip}
             </p>
-          </div>
+          </Reveal>
           <Link
             to="/contact"
-            className="sheen inline-flex items-center gap-2 bg-primary px-6 py-3 font-display text-[0.7rem] uppercase tracking-[0.25em] text-primary-foreground shadow-glow transition-transform hover:-translate-y-0.5"
+            className="sheen inline-flex items-center gap-2 bg-card px-6 py-3 font-display text-[0.7rem] uppercase tracking-[0.25em] text-primary transition-transform hover:-translate-y-0.5"
           >
             {t.nav.cta}
             <ArrowRight className="h-4 w-4" />
