@@ -95,7 +95,8 @@ export function SocialFeed() {
               {tiles.map((item) => (
                 <a
                   key={item.url}
-                  href={STUDIO.instagramStudio}
+                  href={item.href}
+
                   target="_blank"
                   rel="noreferrer"
                   className="group relative aspect-square overflow-hidden bg-card"
