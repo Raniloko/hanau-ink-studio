@@ -105,10 +105,12 @@ export function Header() {
           </button>
         </div>
       </div>
+    </header>
 
       {/* Slide-in panel below the navbar */}
       <div
-        className={`fixed inset-x-0 top-20 bottom-0 z-40 overflow-hidden lg:hidden ${open ? "" : "pointer-events-none"}`}
+        className={`fixed inset-x-0 top-20 bottom-0 z-[60] overflow-hidden lg:hidden ${open ? "" : "pointer-events-none"}`}
+
         aria-hidden={!open}
       >
         <div
