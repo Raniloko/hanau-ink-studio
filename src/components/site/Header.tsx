@@ -163,6 +163,7 @@ export function Header() {
           </nav>
         </aside>
       </div>
-    </header>
+    </>
+
   );
 }
