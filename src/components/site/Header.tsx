@@ -27,7 +27,9 @@ export function Header() {
   ] as const;
 
   return (
+    <>
     <header className="sticky top-0 z-50 border-b border-border bg-background/90 text-foreground backdrop-blur-xl">
+
       <div className="mx-auto grid h-20 max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 lg:flex lg:justify-between">
         <Link to="/" className="flex min-w-0 items-center" onClick={() => setOpen(false)}>
           <Logo className="h-11 sm:h-12 lg:h-14" />
