@@ -40,7 +40,7 @@ function Index() {
         <img
           src={heroAsset.url}
           alt="Innenansicht des PTAH Tattoo Studios in Hanau"
-          className="absolute inset-0 h-full w-full object-cover opacity-55"
+          className="absolute inset-0 h-full w-full object-cover opacity-70"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--background)_65%,transparent)_0%,color-mix(in_oklab,var(--background)_55%,transparent)_40%,var(--background)_100%)]" />
         <div className="relative mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-end px-5 pb-20 pt-28">

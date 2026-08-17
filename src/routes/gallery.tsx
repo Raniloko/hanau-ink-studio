@@ -79,7 +79,6 @@ function GalleryPage() {
               key={`${style}-${index}`}
               label={t.gallery.placeholder}
               caption={style}
-              ratio={index % 5 === 0 ? "aspect-square" : "aspect-[4/5]"}
             />
           ))}
         </div>
