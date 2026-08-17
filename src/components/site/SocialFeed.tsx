@@ -1,5 +1,9 @@
+import { useQuery } from "@tanstack/react-query";
 import { ArrowUpRight, Instagram, Music2 } from "lucide-react";
 import { useEffect } from "react";
+
+import { getInstagramFeed } from "@/lib/instagram.functions";
+
 
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
@@ -41,7 +45,27 @@ function TikTokEmbed() {
 
 export function SocialFeed() {
   const { t } = useLanguage();
-  const tiles = GALLERY.slice(0, 6);
+  const { data } = useQuery({
+    queryKey: ["instagram-feed"],
+    queryFn: () => getInstagramFeed(),
+    staleTime: 5 * 60 * 1000,
+    retry: false,
+  });
+
+  const live = (data?.items ?? []).slice(0, 9);
+  const tiles =
+    live.length > 0
+      ? live.map((post) => ({
+          url: post.url,
+          alt: post.caption || "Tattoo von PTAH Tattoo Hanau",
+          href: post.permalink,
+        }))
+      : GALLERY.slice(0, 6).map((item) => ({
+          url: item.url,
+          alt: item.alt,
+          href: STUDIO.instagramStudio,
+        }));
+
 
   return (
     <section className="relative mx-auto max-w-6xl px-5 py-20 sm:py-28">
@@ -71,7 +95,8 @@ export function SocialFeed() {
               {tiles.map((item) => (
                 <a
                   key={item.url}
-                  href={STUDIO.instagramStudio}
+                  href={item.href}
+
                   target="_blank"
                   rel="noreferrer"
                   className="group relative aspect-square overflow-hidden bg-card"
