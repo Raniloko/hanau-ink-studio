@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import heroAsset from "@/assets/studio-hero.png.asset.json";
 import { Logo } from "@/components/site/Logo";
 import { PlaceholderFrame } from "@/components/site/PlaceholderFrame";
+import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { STUDIO } from "@/i18n/translations";
