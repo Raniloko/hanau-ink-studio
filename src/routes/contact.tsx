@@ -101,7 +101,7 @@ function ContactPage() {
       <SectionHeading kicker="Booking" title={t.contact.title} text={t.contact.text} />
 
       <div className="mt-14 grid gap-12 lg:grid-cols-[1.15fr_0.85fr]">
-        <form onSubmit={handleSubmit} noValidate className="soft-panel lift border border-border p-6 sm:p-8">
+        <form onSubmit={handleSubmit} noValidate className="soft-panel border border-border p-6 sm:p-8">
           <div className="grid gap-5 sm:grid-cols-2">
             <div>
               <Label htmlFor="name">{t.contact.form.name}</Label>
