@@ -50,14 +50,16 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl">
-      <div className="mx-auto grid h-16 max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 sm:px-5 lg:flex lg:justify-between lg:gap-6">
+      <div className="mx-auto grid h-20 max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 sm:px-5 lg:flex lg:justify-between lg:gap-6">
         <Link
           to="/"
-          className="flex min-w-0 items-center gap-2.5 sm:gap-3"
+          className="flex min-w-0 items-center gap-3 sm:gap-4"
           onClick={() => setOpen(false)}
         >
-          <Logo className="h-8 w-8 shrink-0" />
-          <span className="truncate font-display text-[0.7rem] uppercase tracking-[0.3em] text-foreground sm:text-sm sm:tracking-[0.4em]">
+          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-foreground sm:h-12 sm:w-12">
+            <Logo className="h-7 w-7" blend={false} />
+          </span>
+          <span className="truncate font-display text-[0.75rem] uppercase tracking-[0.32em] text-foreground sm:text-sm sm:tracking-[0.4em]">
             {STUDIO.name}
           </span>
         </Link>
@@ -89,17 +91,17 @@ export function Header() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-10 w-10 shrink-0 items-center justify-center border border-border text-foreground lg:hidden"
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center text-foreground lg:hidden"
             aria-label="Menu"
             aria-expanded={open}
           >
-            {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </div>
 
       {open ? (
-        <div className="absolute inset-x-0 top-16 z-40 h-[calc(100dvh-4rem)] overflow-y-auto border-t border-border bg-background lg:hidden">
+        <div className="absolute inset-x-0 top-20 z-40 h-[calc(100dvh-5rem)] overflow-y-auto border-t border-border bg-background lg:hidden">
           <nav className="mx-auto flex max-w-6xl flex-col px-4 py-2 sm:px-5">
             {links.map((link) => (
               <Link
