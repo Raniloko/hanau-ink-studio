@@ -50,7 +50,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-xl">
-      <div className="mx-auto grid h-16 max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 sm:px-5">
+      <div className="mx-auto grid h-16 max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 sm:px-5 lg:flex lg:justify-between lg:gap-6">
         <Link
           to="/"
           className="flex min-w-0 items-center gap-2.5 sm:gap-3"
@@ -99,7 +99,7 @@ export function Header() {
       </div>
 
       {open ? (
-        <div className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t border-border bg-background lg:hidden">
+        <div className="absolute inset-x-0 top-16 z-40 h-[calc(100dvh-4rem)] overflow-y-auto border-t border-border bg-background lg:hidden">
           <nav className="mx-auto flex max-w-6xl flex-col px-4 py-2 sm:px-5">
             {links.map((link) => (
               <Link
