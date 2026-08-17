@@ -53,11 +53,13 @@ export function Header() {
       <div className="mx-auto grid h-16 max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 sm:px-5 lg:flex lg:justify-between lg:gap-6">
         <Link
           to="/"
-          className="flex min-w-0 items-center gap-2.5 sm:gap-3"
+          className="flex min-w-0 items-center gap-3 sm:gap-4"
           onClick={() => setOpen(false)}
         >
-          <Logo className="h-8 w-8 shrink-0" />
-          <span className="truncate font-display text-[0.7rem] uppercase tracking-[0.3em] text-foreground sm:text-sm sm:tracking-[0.4em]">
+          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-foreground sm:h-12 sm:w-12">
+            <Logo className="h-7 w-7 mix-blend-normal" />
+          </span>
+          <span className="truncate font-display text-[0.75rem] uppercase tracking-[0.32em] text-foreground sm:text-sm sm:tracking-[0.4em]">
             {STUDIO.name}
           </span>
         </Link>
