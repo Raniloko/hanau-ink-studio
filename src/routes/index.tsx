@@ -170,8 +170,14 @@ function Index() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-ink">
-        <div className="absolute inset-0 bg-[radial-gradient(70%_140%_at_50%_0%,color-mix(in_oklab,var(--primary)_28%,transparent),transparent)]" />
+      <section className="relative overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, var(--background) 0%, color-mix(in oklab, var(--primary) 88%, var(--ink)) 18%, color-mix(in oklab, var(--primary) 70%, var(--ink)) 82%, var(--background) 100%)",
+          }}
+        />
         <div className="relative mx-auto flex max-w-6xl flex-col items-start gap-6 px-5 py-20 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 className="font-display text-2xl uppercase tracking-tight text-on-dark sm:text-3xl">
