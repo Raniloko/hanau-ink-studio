@@ -43,7 +43,7 @@ function Index() {
           alt="Innenansicht des PTAH Tattoo Studios in Hanau"
           className="absolute inset-0 h-full w-full scale-105 object-cover"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--ink)_72%,transparent)_0%,color-mix(in_oklab,var(--ink)_45%,transparent)_45%,color-mix(in_oklab,var(--background)_92%,transparent)_88%,var(--background)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--ink)_60%,transparent)_0%,color-mix(in_oklab,var(--ink)_30%,transparent)_40%,color-mix(in_oklab,var(--ink)_78%,transparent)_82%,color-mix(in_oklab,var(--ink)_70%,transparent)_92%,var(--background)_100%)]" />
         <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(60%_120%_at_50%_0%,color-mix(in_oklab,var(--primary)_22%,transparent),transparent)]" />
         <div className="relative mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-end px-5 pb-24 pt-28">
           <div className="reveal max-w-3xl">
