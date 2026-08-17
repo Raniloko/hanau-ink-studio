@@ -2,9 +2,7 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Biohazard, Hand, Lock } from "lucide-react";
 
 import heroAsset from "@/assets/studio-hero.png.asset.json";
-import { Logo } from "@/components/site/Logo";
 import { PlaceholderFrame } from "@/components/site/PlaceholderFrame";
-import { SectionHeading } from "@/components/site/SectionHeading";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { STUDIO } from "@/i18n/translations";
 
