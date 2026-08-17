@@ -13,10 +13,16 @@ export function Header() {
     if (!open) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
     };
   }, [open]);
+
 
   const links = [
     { to: "/", label: t.nav.home },
@@ -27,7 +33,9 @@ export function Header() {
   ] as const;
 
   return (
+    <>
     <header className="sticky top-0 z-50 border-b border-border bg-background/90 text-foreground backdrop-blur-xl">
+
       <div className="mx-auto grid h-20 max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 lg:flex lg:justify-between">
         <Link to="/" className="flex min-w-0 items-center" onClick={() => setOpen(false)}>
           <Logo className="h-11 sm:h-12 lg:h-14" />
@@ -103,10 +111,12 @@ export function Header() {
           </button>
         </div>
       </div>
+    </header>
 
       {/* Slide-in panel below the navbar */}
       <div
-        className={`fixed inset-x-0 top-20 bottom-0 z-40 overflow-hidden lg:hidden ${open ? "" : "pointer-events-none"}`}
+        className={`fixed inset-x-0 top-20 bottom-0 z-[60] overflow-hidden lg:hidden ${open ? "" : "pointer-events-none"}`}
+
         aria-hidden={!open}
       >
         <div
@@ -159,6 +169,7 @@ export function Header() {
           </nav>
         </aside>
       </div>
-    </header>
+    </>
+
   );
 }
