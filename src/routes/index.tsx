@@ -138,15 +138,15 @@ function Index() {
               return (
                 <Reveal key={item.name} delay={index * 90}>
                   <div className="sheen lift group h-full overflow-hidden border border-border bg-card">
-                    <div className="relative aspect-[4/3] overflow-hidden">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-secondary p-3">
                       <img
                         src={image.url}
                         alt={image.alt}
                         loading="lazy"
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
                       />
-                      <span className="absolute inset-0 bg-[linear-gradient(180deg,transparent_45%,color-mix(in_oklab,var(--ink)_55%,transparent)_100%)]" />
                     </div>
+
                     <div className="p-6">
                       <span className="font-display text-[0.6rem] uppercase tracking-[0.3em] text-primary">
                         {String(index + 1).padStart(2, "0")}
