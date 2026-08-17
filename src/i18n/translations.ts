@@ -68,14 +68,21 @@ const de = {
     text: "Die Galerie wird laufend mit aktuellen Motiven aus dem Studio gefüllt.",
     link: "Zur kompletten Galerie",
   },
+  social: {
+    kicker: "Social",
+    title: "Live aus dem Studio",
+    text: "Instagram und TikTok laufen parallel zur Nadel – hier siehst du, woran gerade gearbeitet wird.",
+    follow: "Folgen",
+  },
   gallery: {
     title: "Galerie",
-    text: "Arbeiten aus dem Studio. Bilder folgen laufend – aktuelle Motive findest du immer zuerst auf Instagram und TikTok.",
+    text: "Arbeiten aus dem Studio. Aktuelle Motive findest du immer zuerst auf Instagram und TikTok.",
     all: "Alle",
     placeholder: "Bild folgt",
-    empty: "Für diesen Stil sind noch keine Bilder hinterlegt.",
+    empty: "Noch keine Bilder hinterlegt.",
     social: "Aktuelle Motive auf Instagram",
   },
+
   artists: {
     title: "Artists",
     text: "Zwei Handschriften, ein Studio.",
