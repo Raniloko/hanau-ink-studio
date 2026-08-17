@@ -39,7 +39,7 @@ function ArtistsPage() {
 
       <div className="mt-12 grid gap-10 lg:grid-cols-2">
         {t.artists.list.map((artist, index) => (
-          <article key={artist.name} className="border border-border bg-card/40">
+          <article key={artist.name} className="soft-panel lift border border-border">
             <PlaceholderFrame label={t.gallery.placeholder} ratio="aspect-[4/3]" />
             <div className="p-7">
               <p className="font-display text-[0.6rem] uppercase tracking-[0.3em] text-primary">

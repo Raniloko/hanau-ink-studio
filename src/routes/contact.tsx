@@ -101,7 +101,7 @@ function ContactPage() {
       <SectionHeading kicker="Booking" title={t.contact.title} text={t.contact.text} />
 
       <div className="mt-14 grid gap-12 lg:grid-cols-[1.15fr_0.85fr]">
-        <form onSubmit={handleSubmit} noValidate className="border border-border bg-card/40 p-6 sm:p-8">
+        <form onSubmit={handleSubmit} noValidate className="soft-panel lift border border-border p-6 sm:p-8">
           <div className="grid gap-5 sm:grid-cols-2">
             <div>
               <Label htmlFor="name">{t.contact.form.name}</Label>
@@ -191,7 +191,7 @@ function ContactPage() {
         </form>
 
         <aside className="space-y-8">
-          <div className="border border-border bg-card/40 p-6">
+          <div className="soft-panel lift border border-border p-6">
             <h2 className="font-display text-[0.65rem] uppercase tracking-[0.3em] text-primary">
               {t.contact.studioTitle}
             </h2>
@@ -219,7 +219,7 @@ function ContactPage() {
             </ul>
           </div>
 
-          <div className="border border-border bg-card/40 p-6">
+          <div className="soft-panel lift border border-border p-6">
             <h2 className="font-display text-[0.65rem] uppercase tracking-[0.3em] text-primary">
               {t.contact.hoursTitle}
             </h2>
@@ -238,7 +238,7 @@ function ContactPage() {
             {t.contact.mapPlaceholder}
           </div>
 
-          <div className="border border-border bg-card/40 p-6">
+          <div className="soft-panel lift border border-border p-6">
             <h2 className="font-display text-[0.65rem] uppercase tracking-[0.3em] text-primary">
               {t.contact.socialTitle}
             </h2>
