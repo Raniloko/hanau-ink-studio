@@ -68,14 +68,21 @@ const de = {
     text: "Die Galerie wird laufend mit aktuellen Motiven aus dem Studio gefüllt.",
     link: "Zur kompletten Galerie",
   },
+  social: {
+    kicker: "Social",
+    title: "Live aus dem Studio",
+    text: "Instagram und TikTok laufen parallel zur Nadel – hier siehst du, woran gerade gearbeitet wird.",
+    follow: "Folgen",
+  },
   gallery: {
     title: "Galerie",
-    text: "Arbeiten aus dem Studio. Bilder folgen laufend – aktuelle Motive findest du immer zuerst auf Instagram und TikTok.",
+    text: "Arbeiten aus dem Studio. Aktuelle Motive findest du immer zuerst auf Instagram und TikTok.",
     all: "Alle",
     placeholder: "Bild folgt",
-    empty: "Für diesen Stil sind noch keine Bilder hinterlegt.",
+    empty: "Noch keine Bilder hinterlegt.",
     social: "Aktuelle Motive auf Instagram",
   },
+
   artists: {
     title: "Artists",
     text: "Zwei Handschriften, ein Studio.",
@@ -260,14 +267,21 @@ const en: typeof de = {
     text: "The gallery is filled continuously with current pieces from the studio.",
     link: "See the full gallery",
   },
+  social: {
+    kicker: "Social",
+    title: "Live from the studio",
+    text: "Instagram and TikTok run alongside the needle — see what is on the table right now.",
+    follow: "Follow",
+  },
   gallery: {
     title: "Gallery",
-    text: "Work from the studio. Images are added continuously — the latest pieces always land on Instagram and TikTok first.",
+    text: "Work from the studio. The latest pieces always land on Instagram and TikTok first.",
     all: "All",
     placeholder: "Image coming",
-    empty: "No images for this style yet.",
+    empty: "No images yet.",
     social: "Latest pieces on Instagram",
   },
+
   artists: {
     title: "Artists",
     text: "Two handwritings, one studio.",
