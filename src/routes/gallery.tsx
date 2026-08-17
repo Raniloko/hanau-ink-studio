@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Instagram } from "lucide-react";
-import { useState } from "react";
 
-import { PlaceholderFrame } from "@/components/site/PlaceholderFrame";
+import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { STUDIO } from "@/i18n/translations";
+import { GALLERY } from "@/lib/gallery";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/gallery")({
       {
         name: "description",
         content:
-          "Portfolio des PTAH Tattoo Studios in Hanau: Blackwork, Lettering, Fineline, Realistic, Chicano und Cover-Ups.",
+          "Portfolio des PTAH Tattoo Studios in Hanau: Blackwork, Lettering, Fineline, Realistic und Chicano.",
       },
       { property: "og:title", content: "Galerie — PTAH Tattoo Hanau" },
       {
@@ -32,57 +32,27 @@ export const Route = createFileRoute("/gallery")({
 
 function GalleryPage() {
   const { t } = useLanguage();
-  const [filter, setFilter] = useState<string>("all");
-
-  const styles = t.styles.items.map((item) => item.name);
-  const slots = styles.flatMap((style) => [style, style, style]);
-  const visible = filter === "all" ? slots : slots.filter((style) => style === filter);
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
-      <SectionHeading kicker="Portfolio" title={t.gallery.title} text={t.gallery.text} />
+      <Reveal>
+        <SectionHeading kicker="Portfolio" title={t.gallery.title} text={t.gallery.text} />
+      </Reveal>
 
-      <div className="mt-10 flex flex-wrap gap-2">
-        <button
-          type="button"
-          onClick={() => setFilter("all")}
-          className={`border px-4 py-2 font-display text-[0.6rem] uppercase tracking-[0.25em] transition-colors ${
-            filter === "all"
-              ? "border-primary bg-primary text-primary-foreground"
-              : "border-border text-muted-foreground hover:border-primary hover:text-primary"
-          }`}
-        >
-          {t.gallery.all}
-        </button>
-        {styles.map((style) => (
-          <button
-            key={style}
-            type="button"
-            onClick={() => setFilter(style)}
-            className={`border px-4 py-2 font-display text-[0.6rem] uppercase tracking-[0.25em] transition-colors ${
-              filter === style
-                ? "border-primary bg-primary text-primary-foreground"
-                : "border-border text-muted-foreground hover:border-primary hover:text-primary"
-            }`}
-          >
-            {style}
-          </button>
+      <div className="mt-12 columns-2 gap-4 lg:columns-3 [&>*]:mb-4">
+        {GALLERY.map((item, index) => (
+          <Reveal key={item.url} delay={(index % 3) * 90}>
+            <figure className="group relative overflow-hidden bg-card hairline">
+              <img
+                src={item.url}
+                alt={item.alt}
+                loading="lazy"
+                className="w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+              />
+            </figure>
+          </Reveal>
         ))}
       </div>
-
-      {visible.length === 0 ? (
-        <p className="mt-12 text-sm text-muted-foreground">{t.gallery.empty}</p>
-      ) : (
-        <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-3">
-          {visible.map((style, index) => (
-            <PlaceholderFrame
-              key={`${style}-${index}`}
-              label={t.gallery.placeholder}
-              caption={style}
-            />
-          ))}
-        </div>
-      )}
 
       <a
         href={STUDIO.instagramStudio}
@@ -96,3 +66,4 @@ function GalleryPage() {
     </div>
   );
 }
+
