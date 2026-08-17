@@ -36,38 +36,39 @@ function Index() {
 
   return (
     <div>
-      <section className="relative grain min-h-[88vh] overflow-hidden">
+      <section className="relative grain min-h-[88vh] overflow-hidden bg-ink">
         <img
           src={heroAsset.url}
           alt="Innenansicht des PTAH Tattoo Studios in Hanau"
-          className="absolute inset-0 h-full w-full object-cover opacity-70"
+          className="absolute inset-0 h-full w-full scale-105 object-cover"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--background)_65%,transparent)_0%,color-mix(in_oklab,var(--background)_55%,transparent)_40%,var(--background)_100%)]" />
-        <div className="relative mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-end px-5 pb-20 pt-28">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--ink)_72%,transparent)_0%,color-mix(in_oklab,var(--ink)_45%,transparent)_45%,color-mix(in_oklab,var(--background)_92%,transparent)_88%,var(--background)_100%)]" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(60%_120%_at_50%_0%,color-mix(in_oklab,var(--primary)_22%,transparent),transparent)]" />
+        <div className="relative mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-end px-5 pb-24 pt-28">
           <div className="reveal max-w-3xl">
             <p className="font-display text-[0.65rem] uppercase tracking-[0.5em] text-primary">
               {t.hero.kicker}
             </p>
-            <h1 className="mt-6 font-display text-5xl uppercase leading-[0.95] tracking-tight sm:text-7xl">
+            <h1 className="mt-6 font-display text-5xl uppercase leading-[0.95] tracking-tight text-on-dark sm:text-7xl">
               {t.hero.title}
               <span className="mt-2 block font-gothic text-6xl normal-case tracking-normal text-primary text-glow sm:text-8xl">
                 {t.hero.titleAccent}
               </span>
             </h1>
-            <p className="mt-7 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+            <p className="mt-7 max-w-xl text-sm leading-relaxed text-on-dark-muted sm:text-base">
               {t.hero.text}
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-primary px-6 py-3 font-display text-[0.7rem] uppercase tracking-[0.25em] text-primary-foreground transition-transform hover:-translate-y-0.5"
+                className="sheen inline-flex items-center gap-2 bg-primary px-6 py-3 font-display text-[0.7rem] uppercase tracking-[0.25em] text-primary-foreground shadow-glow transition-transform hover:-translate-y-0.5"
               >
                 {t.hero.ctaPrimary}
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/gallery"
-                className="inline-flex items-center gap-2 border border-border px-6 py-3 font-display text-[0.7rem] uppercase tracking-[0.25em] text-foreground transition-colors hover:border-primary hover:text-primary"
+                className="inline-flex items-center gap-2 border border-on-dark-muted/40 px-6 py-3 font-display text-[0.7rem] uppercase tracking-[0.25em] text-on-dark backdrop-blur-sm transition-colors hover:border-primary hover:text-primary"
               >
                 {t.hero.ctaSecondary}
               </Link>
@@ -76,47 +77,55 @@ function Index() {
         </div>
       </section>
 
-      <div className="overflow-hidden border-y border-border bg-card/40 py-4">
+      <div className="overflow-hidden border-b border-border bg-background py-5">
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 px-5">
-          {t.marquee.map((word) => (
-            <span
-              key={word}
-              className="font-display text-[0.65rem] uppercase tracking-[0.35em] text-muted-foreground"
-            >
-              {word}
-            </span>
+          {t.marquee.map((word, i) => (
+            <Reveal key={word} delay={i * 60}>
+              <span className="font-display text-[0.65rem] uppercase tracking-[0.35em] text-muted-foreground">
+                {word}
+              </span>
+            </Reveal>
           ))}
         </div>
       </div>
 
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
-        <SectionHeading kicker={t.intro.kicker} title={t.intro.title} text={t.intro.text} />
-        <div className="mt-12 grid gap-px bg-border sm:grid-cols-3">
-          {t.intro.points.map((point) => (
-            <div key={point.title} className="bg-background p-7">
-              <Logo className="h-7 w-7" />
-              <h3 className="mt-5 font-display text-sm uppercase tracking-[0.2em]">{point.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{point.text}</p>
-            </div>
+      <section className="aurora relative mx-auto max-w-6xl px-5 py-20 sm:py-28">
+        <Reveal>
+          <SectionHeading kicker={t.intro.kicker} title={t.intro.title} text={t.intro.text} />
+        </Reveal>
+        <div className="mt-12 grid gap-5 sm:grid-cols-3">
+          {t.intro.points.map((point, i) => (
+            <Reveal key={point.title} delay={i * 110}>
+              <div className="soft-panel lift h-full border border-border p-7">
+                <Logo className="h-7 w-7" />
+                <h3 className="mt-5 font-display text-sm uppercase tracking-[0.2em]">
+                  {point.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{point.text}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="border-y border-border bg-card/30">
-        <div className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
-          <SectionHeading kicker={t.styles.kicker} title={t.styles.title} text={t.styles.text} />
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="relative overflow-hidden bg-[linear-gradient(180deg,var(--background)_0%,color-mix(in_oklab,var(--primary)_7%,var(--background))_35%,color-mix(in_oklab,var(--primary)_7%,var(--background))_65%,var(--background)_100%)]">
+        <div className="mx-auto max-w-6xl px-5 py-24 sm:py-32">
+          <Reveal>
+            <SectionHeading kicker={t.styles.kicker} title={t.styles.title} text={t.styles.text} />
+          </Reveal>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {t.styles.items.map((item, index) => (
-              <div
-                key={item.name}
-                className="group relative overflow-hidden border border-border bg-background p-6 transition-colors hover:border-primary"
-              >
-                <span className="font-display text-[0.6rem] uppercase tracking-[0.3em] text-primary">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-4 font-gothic text-3xl text-foreground">{item.name}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{item.text}</p>
-              </div>
+              <Reveal key={item.name} delay={index * 90}>
+                <div className="sheen lift group h-full border border-border bg-card p-6">
+                  <span className="font-display text-[0.6rem] uppercase tracking-[0.3em] text-primary">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="mt-4 font-gothic text-3xl text-foreground transition-colors group-hover:text-primary">
+                    {item.name}
+                  </h3>
+                  <p className="mt-3 text-sm text-muted-foreground">{item.text}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -124,11 +133,13 @@ function Index() {
 
       <section className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHeading
-            kicker={t.galleryTeaser.kicker}
-            title={t.galleryTeaser.title}
-            text={t.galleryTeaser.text}
-          />
+          <Reveal>
+            <SectionHeading
+              kicker={t.galleryTeaser.kicker}
+              title={t.galleryTeaser.title}
+              text={t.galleryTeaser.text}
+            />
+          </Reveal>
           <Link
             to="/gallery"
             className="inline-flex items-center gap-2 font-display text-[0.65rem] uppercase tracking-[0.25em] text-primary hover:underline"
@@ -138,25 +149,28 @@ function Index() {
           </Link>
         </div>
         <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
-          {t.styles.items.slice(0, 4).map((item) => (
-            <PlaceholderFrame key={item.name} label={t.gallery.placeholder} caption={item.name} />
+          {t.styles.items.slice(0, 4).map((item, i) => (
+            <Reveal key={item.name} delay={i * 100}>
+              <PlaceholderFrame label={t.gallery.placeholder} caption={item.name} />
+            </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="border-t border-border bg-card/40">
-        <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-5 py-16 sm:flex-row sm:items-center sm:justify-between">
+      <section className="relative overflow-hidden bg-ink">
+        <div className="absolute inset-0 bg-[radial-gradient(70%_140%_at_50%_0%,color-mix(in_oklab,var(--primary)_28%,transparent),transparent)]" />
+        <div className="relative mx-auto flex max-w-6xl flex-col items-start gap-6 px-5 py-20 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h2 className="font-display text-2xl uppercase tracking-tight sm:text-3xl">
+            <h2 className="font-display text-2xl uppercase tracking-tight text-on-dark sm:text-3xl">
               {t.hero.ctaPrimary}
             </h2>
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="mt-2 text-sm text-on-dark-muted">
               {STUDIO.street}, {STUDIO.zip}
             </p>
           </div>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 bg-primary px-6 py-3 font-display text-[0.7rem] uppercase tracking-[0.25em] text-primary-foreground"
+            className="sheen inline-flex items-center gap-2 bg-primary px-6 py-3 font-display text-[0.7rem] uppercase tracking-[0.25em] text-primary-foreground shadow-glow transition-transform hover:-translate-y-0.5"
           >
             {t.nav.cta}
             <ArrowRight className="h-4 w-4" />
@@ -166,3 +180,4 @@ function Index() {
     </div>
   );
 }
+
