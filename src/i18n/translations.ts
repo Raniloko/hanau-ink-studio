@@ -267,14 +267,21 @@ const en: typeof de = {
     text: "The gallery is filled continuously with current pieces from the studio.",
     link: "See the full gallery",
   },
+  social: {
+    kicker: "Social",
+    title: "Live from the studio",
+    text: "Instagram and TikTok run alongside the needle — see what is on the table right now.",
+    follow: "Follow",
+  },
   gallery: {
     title: "Gallery",
-    text: "Work from the studio. Images are added continuously — the latest pieces always land on Instagram and TikTok first.",
+    text: "Work from the studio. The latest pieces always land on Instagram and TikTok first.",
     all: "All",
     placeholder: "Image coming",
-    empty: "No images for this style yet.",
+    empty: "No images yet.",
     social: "Latest pieces on Instagram",
   },
+
   artists: {
     title: "Artists",
     text: "Two handwritings, one studio.",
