@@ -10,6 +10,10 @@ import { useLanguage } from "@/i18n/LanguageProvider";
 import { STUDIO } from "@/i18n/translations";
 import { GALLERY } from "@/lib/gallery";
 
+// Bild-Zuordnung zu den Styles: Blackwork, Lettering, Fineline, Realistic, Chicano, Cover-Up
+const STYLE_IMAGES = [GALLERY[4], GALLERY[2], GALLERY[5], GALLERY[1], GALLERY[0], GALLERY[3]];
+
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
