@@ -8,14 +8,15 @@ import { Logo } from "./Logo";
 export function Header() {
   const { t, locale, setLocale } = useLanguage();
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
 
   const links = [
     { to: "/", label: t.nav.home },
@@ -25,19 +26,11 @@ export function Header() {
     { to: "/contact", label: t.nav.contact },
   ] as const;
 
-  const dark = scrolled || open;
-
   return (
-    <header
-      className={`sticky top-0 z-50 border-b backdrop-blur-xl transition-colors duration-500 ease-out ${
-        dark
-          ? "border-primary/40 bg-primary/95 text-primary-foreground"
-          : "border-border bg-background/85 text-foreground"
-      }`}
-    >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5">
-        <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
-          <Logo className="h-7 sm:h-8" inverted={dark} />
+    <header className="sticky top-0 z-50 border-b border-border bg-background/90 text-foreground backdrop-blur-xl">
+      <div className="mx-auto grid h-20 max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 lg:flex lg:justify-between">
+        <Link to="/" className="flex min-w-0 items-center" onClick={() => setOpen(false)}>
+          <Logo className="h-11 sm:h-12 lg:h-14" />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">
@@ -46,21 +39,17 @@ export function Header() {
               key={link.to}
               to={link.to}
               activeOptions={{ exact: link.to === "/" }}
-              activeProps={{ className: dark ? "opacity-100" : "text-primary" }}
-              className={`font-display text-[0.7rem] uppercase tracking-[0.25em] transition-colors duration-500 ${
-                dark ? "text-primary-foreground/75 hover:text-primary-foreground" : "text-muted-foreground hover:text-foreground"
-              }`}
+              activeProps={{ className: "text-primary" }}
+              className="font-display text-[0.7rem] uppercase tracking-[0.25em] text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-3">
           <div
-            className={`hidden items-center gap-1 border px-1 py-1 transition-colors duration-500 sm:flex ${
-              dark ? "border-primary-foreground/40" : "border-border"
-            }`}
+            className="hidden items-center gap-1 border border-border px-1 py-1 sm:flex"
             aria-label={t.common.langLabel}
           >
             {(["de", "en"] as const).map((code) => (
@@ -70,12 +59,8 @@ export function Header() {
                 onClick={() => setLocale(code)}
                 className={`px-2 py-0.5 font-display text-[0.6rem] uppercase tracking-[0.2em] transition-colors duration-300 ${
                   locale === code
-                    ? dark
-                      ? "bg-primary-foreground text-primary"
-                      : "bg-primary text-primary-foreground"
-                    : dark
-                      ? "text-primary-foreground/70 hover:text-primary-foreground"
-                      : "text-muted-foreground hover:text-foreground"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {code}
@@ -85,11 +70,7 @@ export function Header() {
 
           <Link
             to="/contact"
-            className={`hidden border px-4 py-2 font-display text-[0.65rem] uppercase tracking-[0.25em] transition-colors duration-500 sm:inline-flex ${
-              dark
-                ? "border-primary-foreground/60 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-                : "border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-            }`}
+            className="hidden border border-primary px-4 py-2 font-display text-[0.65rem] uppercase tracking-[0.25em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:inline-flex"
           >
             {t.nav.cta}
           </Link>
@@ -97,9 +78,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className={`relative inline-flex h-9 w-9 items-center justify-center border transition-colors duration-500 lg:hidden ${
-              dark ? "border-primary-foreground/50" : "border-border"
-            }`}
+            className="relative inline-flex h-10 w-10 shrink-0 items-center justify-center border border-border lg:hidden"
             aria-label="Menu"
             aria-expanded={open}
           >
@@ -107,9 +86,7 @@ export function Header() {
               {[0, 1, 2].map((i) => (
                 <span
                   key={i}
-                  className={`absolute left-0 block h-[1.5px] w-5 transition-all duration-300 ease-out ${
-                    dark ? "bg-primary-foreground" : "bg-foreground"
-                  } ${
+                  className={`absolute left-0 block h-[1.5px] w-5 bg-foreground transition-all duration-300 ease-out ${
                     i === 0
                       ? open
                         ? "top-1/2 -translate-y-1/2 rotate-45"
@@ -129,17 +106,17 @@ export function Header() {
 
       {/* Slide-in panel below the navbar */}
       <div
-        className={`fixed inset-x-0 top-16 bottom-0 z-40 lg:hidden ${open ? "" : "pointer-events-none"}`}
+        className={`fixed inset-x-0 top-20 bottom-0 z-40 overflow-hidden lg:hidden ${open ? "" : "pointer-events-none"}`}
         aria-hidden={!open}
       >
         <div
           onClick={() => setOpen(false)}
-          className={`absolute inset-0 bg-ink/40 backdrop-blur-[2px] transition-opacity duration-500 ${
+          className={`absolute inset-0 bg-ink/40 transition-opacity duration-500 ${
             open ? "opacity-100" : "opacity-0"
           }`}
         />
         <aside
-          className={`absolute right-0 top-0 h-full w-[82%] max-w-sm border-l border-primary/30 bg-background shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          className={`absolute right-0 top-0 flex h-full w-[86%] max-w-sm flex-col overflow-y-auto border-l border-border bg-card shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
