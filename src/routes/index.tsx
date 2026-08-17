@@ -134,7 +134,7 @@ function Index() {
           </Reveal>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {t.styles.items.map((item, index) => {
-              const image = STYLE_IMAGES[index] ?? GALLERY[index % GALLERY.length];
+              const image = STYLE_IMAGES[index] ?? GALLERY[index % GALLERY.length]!;
               return (
                 <Reveal key={item.name} delay={index * 90}>
                   <div className="sheen lift group h-full overflow-hidden border border-border bg-card">
