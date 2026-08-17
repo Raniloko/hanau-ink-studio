@@ -40,7 +40,7 @@ function InfoPage() {
       <SectionHeading kicker="Info" title={t.info.title} text={t.info.text} />
 
       <section className="mt-14 grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="border border-border bg-card/40 p-7">
+        <div className="soft-panel lift border border-border p-7">
           <h2 className="font-display text-sm uppercase tracking-[0.25em] text-primary">
             {t.info.pricing.title}
           </h2>
@@ -67,7 +67,7 @@ function InfoPage() {
         </div>
       </section>
 
-      <section className="mt-16 border border-border bg-card/40 p-7">
+      <section className="mt-16 soft-panel lift border border-border p-7">
         <h2 className="font-display text-sm uppercase tracking-[0.25em] text-primary">
           {t.info.aftercare.title}
         </h2>
