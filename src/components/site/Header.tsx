@@ -57,7 +57,7 @@ export function Header() {
           onClick={() => setOpen(false)}
         >
           <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-foreground sm:h-12 sm:w-12">
-            <Logo className="h-7 w-7 mix-blend-normal" />
+            <Logo className="h-7 w-7" blend={false} />
           </span>
           <span className="truncate font-display text-[0.75rem] uppercase tracking-[0.32em] text-foreground sm:text-sm sm:tracking-[0.4em]">
             {STUDIO.name}
@@ -91,11 +91,11 @@ export function Header() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-10 w-10 shrink-0 items-center justify-center border border-border text-foreground lg:hidden"
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center text-foreground lg:hidden"
             aria-label="Menu"
             aria-expanded={open}
           >
-            {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </div>
