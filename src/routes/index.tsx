@@ -3,11 +3,13 @@ import { ArrowRight } from "lucide-react";
 
 import heroAsset from "@/assets/studio-hero.png.asset.json";
 import { Logo } from "@/components/site/Logo";
-import { PlaceholderFrame } from "@/components/site/PlaceholderFrame";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
+import { SocialFeed } from "@/components/site/SocialFeed";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { STUDIO } from "@/i18n/translations";
+import { GALLERY } from "@/lib/gallery";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -162,13 +164,23 @@ function Index() {
           </Link>
         </div>
         <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
-          {t.styles.items.slice(0, 4).map((item, i) => (
-            <Reveal key={item.name} delay={i * 100}>
-              <PlaceholderFrame label={t.gallery.placeholder} caption={item.name} />
+          {GALLERY.slice(0, 4).map((item, i) => (
+            <Reveal key={item.url} delay={i * 100}>
+              <figure className="group relative aspect-[4/5] overflow-hidden bg-card hairline">
+                <img
+                  src={item.url}
+                  alt={item.alt}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </figure>
             </Reveal>
           ))}
         </div>
       </section>
+
+      <SocialFeed />
+
 
       <section className="relative overflow-hidden">
         <div
