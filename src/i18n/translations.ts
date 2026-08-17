@@ -1,0 +1,399 @@
+export type Locale = "de" | "en";
+
+export const STUDIO = {
+  name: "PTAH TATTOO",
+  city: "Hanau",
+  street: "Hauptstraße 12",
+  zip: "63450 Hanau",
+  email: "info@ptah-tattoo.de",
+  phone: "+49 6181 000000",
+  instagramStudio: "https://www.instagram.com/ptah_tattoos",
+  instagramArtist: "https://www.instagram.com/tijeq",
+  tiktok: "https://www.tiktok.com/@tijeeq",
+};
+
+const de = {
+  nav: {
+    home: "Start",
+    gallery: "Galerie",
+    artists: "Artists",
+    info: "Info & FAQ",
+    contact: "Kontakt",
+    cta: "Termin anfragen",
+  },
+  hero: {
+    kicker: "Tattoo Studio · Hanau",
+    title: "Schwarz auf Haut.",
+    titleAccent: "Für immer.",
+    text: "Custom Blackwork, Lettering und Fineline in einem modernen Studio mitten in Hanau. Jedes Motiv wird für dich gezeichnet – kein Katalog, keine Kopie.",
+    ctaPrimary: "Termin anfragen",
+    ctaSecondary: "Arbeiten ansehen",
+  },
+  marquee: ["Blackwork", "Lettering", "Fineline", "Realistic", "Chicano", "Cover-Up"],
+  intro: {
+    kicker: "Das Studio",
+    title: "Präzision, Hygiene, Handschrift",
+    text: "PTAH steht für saubere Linien und kompromisslose Sorgfalt. Vom ersten Entwurf bis zum letzten Stich arbeiten wir mit dir am Motiv – ruhig, privat und ohne Zeitdruck.",
+    points: [
+      {
+        title: "Custom Only",
+        text: "Jedes Design entsteht individuell nach deiner Idee und deiner Anatomie.",
+      },
+      {
+        title: "Hygiene Standard",
+        text: "Einwegmaterial, geprüfte Farben, dokumentierte Desinfektion nach Vorschrift.",
+      },
+      {
+        title: "Private Sessions",
+        text: "Feste Termine, eigener Platz, keine Laufkundschaft im Nacken.",
+      },
+    ],
+  },
+  styles: {
+    kicker: "Styles",
+    title: "Woran wir arbeiten",
+    text: "Unsere Schwerpunkte – alles andere besprechen wir gern im Beratungsgespräch.",
+    items: [
+      { name: "Blackwork", text: "Flächig, grafisch, hoher Kontrast." },
+      { name: "Lettering", text: "Blackletter, Script, Chicano-Fonts." },
+      { name: "Fineline", text: "Feine Nadel, zarte Linien, viel Detail." },
+      { name: "Realistic", text: "Portraits und Objekte in Schwarz-Grau." },
+      { name: "Chicano", text: "Smooth Shading, Roses, Filigranes." },
+      { name: "Cover-Up", text: "Altes überarbeiten statt lasern." },
+    ],
+  },
+  galleryTeaser: {
+    kicker: "Portfolio",
+    title: "Ausgewählte Arbeiten",
+    text: "Die Galerie wird laufend mit aktuellen Motiven aus dem Studio gefüllt.",
+    link: "Zur kompletten Galerie",
+  },
+  gallery: {
+    title: "Galerie",
+    text: "Arbeiten aus dem Studio. Bilder folgen laufend – aktuelle Motive findest du immer zuerst auf Instagram und TikTok.",
+    all: "Alle",
+    placeholder: "Bild folgt",
+    empty: "Für diesen Stil sind noch keine Bilder hinterlegt.",
+    social: "Aktuelle Motive auf Instagram",
+  },
+  artists: {
+    title: "Artists",
+    text: "Zwei Handschriften, ein Studio.",
+    bioPlaceholder: "Bio folgt in Kürze.",
+    specialty: "Schwerpunkt",
+    book: "Bei diesem Artist anfragen",
+    list: [
+      {
+        name: "Tijeq",
+        role: "Resident Artist",
+        specialty: "Lettering · Blackwork · Chicano",
+        bio: "Arbeitet seit Jahren an Blackletter und großflächigen schwarzen Kompositionen. Bekannt für harte Kanten und sauberes Shading.",
+      },
+      {
+        name: "PTAH Crew",
+        role: "Guest & Resident",
+        specialty: "Fineline · Realistic · Cover-Up",
+        bio: "Wechselnde Guest-Artists ergänzen das Studio um Fineline und Realistic. Termine werden über das Studio koordiniert.",
+      },
+    ],
+  },
+  info: {
+    title: "Info & FAQ",
+    text: "Alles, was du vor deinem Termin wissen solltest.",
+    pricing: {
+      title: "Preise & Ablauf",
+      items: [
+        { label: "Mindestpreis", value: "ab 100 €" },
+        { label: "Stundensatz", value: "120 – 150 €" },
+        { label: "Tagessatz", value: "auf Anfrage" },
+        { label: "Anzahlung", value: "50 € (wird verrechnet)" },
+      ],
+      note: "Der finale Preis hängt von Größe, Stelle und Detailgrad ab. Nach deiner Anfrage bekommst du eine konkrete Einschätzung.",
+      steps: [
+        { title: "1 · Anfrage", text: "Formular ausfüllen, Idee und Referenzen schicken." },
+        { title: "2 · Beratung", text: "Wir klären Größe, Stelle, Stil und Budget." },
+        { title: "3 · Entwurf", text: "Dein Motiv wird gezeichnet und vor Ort finalisiert." },
+        { title: "4 · Termin", text: "Stechen, Nachsorge-Briefing, Check-up." },
+      ],
+    },
+    aftercare: {
+      title: "Pflege",
+      items: [
+        "Folie nach Anweisung tragen und danach mehrmals täglich dünn eincremen.",
+        "2 Wochen kein Schwimmbad, keine Sauna, kein Sonnenstudio.",
+        "Krusten nicht abkratzen, frische Tattoos nicht abdecken mit enger Kleidung.",
+        "Direkte Sonne meiden, später konsequent Sonnenschutz nutzen.",
+      ],
+    },
+    faq: {
+      title: "FAQ",
+      items: [
+        {
+          q: "Ab welchem Alter kann ich mich tätowieren lassen?",
+          a: "Ab 18 Jahren. Von 16 bis 17 nur mit schriftlicher Einwilligung und Anwesenheit eines Erziehungsberechtigten.",
+        },
+        {
+          q: "Brauche ich eine Anzahlung?",
+          a: "Ja, 50 € sichern deinen Termin und werden mit dem Endpreis verrechnet.",
+        },
+        {
+          q: "Was passiert, wenn ich absagen muss?",
+          a: "Bis 48 Stunden vorher kostenlos verschieben. Danach verfällt die Anzahlung.",
+        },
+        {
+          q: "Wie sehr tut es weh?",
+          a: "Abhängig von der Stelle. Rippen, Ellenbogen und Kniekehle sind intensiv, Unterarm und Oberschenkel deutlich entspannter.",
+        },
+        {
+          q: "Wie hygienisch arbeitet ihr?",
+          a: "Einwegnadeln und -griffe, sterile Abdeckung, geprüfte Farben und dokumentierte Flächendesinfektion.",
+        },
+        {
+          q: "Kann ich ein bestehendes Tattoo covern?",
+          a: "Oft ja. Schick uns ein gutes Foto bei Tageslicht, dann sagen wir dir ehrlich, was möglich ist.",
+        },
+      ],
+    },
+  },
+  contact: {
+    title: "Termin anfragen",
+    text: "Erzähl uns von deiner Idee. Je genauer die Angaben, desto schneller kommt eine konkrete Rückmeldung.",
+    studioTitle: "Studio",
+    hoursTitle: "Öffnungszeiten",
+    hours: [
+      { day: "Mo – Fr", time: "11:00 – 19:00" },
+      { day: "Sa", time: "11:00 – 16:00" },
+      { day: "So", time: "geschlossen" },
+    ],
+    hoursNote: "Termine nur nach Vereinbarung.",
+    mapPlaceholder: "Karte folgt",
+    socialTitle: "Social",
+    form: {
+      name: "Name",
+      email: "E-Mail",
+      phone: "Telefon (optional)",
+      motif: "Deine Idee / Motiv",
+      motifPlaceholder: "Was soll es werden? Erzähl uns von deiner Idee.",
+      bodyArea: "Körperstelle",
+      size: "Ungefähre Größe",
+      style: "Stil",
+      stylePlaceholder: "Stil wählen",
+      preferredTime: "Wunschzeitraum",
+      preferredTimePlaceholder: "z. B. ab Mai, wochentags abends",
+      reference: "Referenz-Link (optional)",
+      consent:
+        "Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage gespeichert werden.",
+      submit: "Anfrage senden",
+      submitting: "Wird gesendet …",
+      success: "Danke! Deine Anfrage ist da – wir melden uns per E-Mail.",
+      error: "Das hat nicht geklappt. Bitte versuch es erneut oder schreib uns direkt.",
+      required: "Bitte ausfüllen",
+      invalidEmail: "Bitte gültige E-Mail angeben",
+      consentRequired: "Ohne Einwilligung können wir die Anfrage nicht speichern",
+    },
+  },
+  footer: {
+    tagline: "Custom Tattoos aus Hanau.",
+    nav: "Navigation",
+    contact: "Kontakt",
+    rights: "Alle Rechte vorbehalten.",
+    imprintNote: "Impressum und Datenschutz folgen.",
+  },
+  common: {
+    langLabel: "Sprache",
+  },
+};
+
+const en: typeof de = {
+  nav: {
+    home: "Home",
+    gallery: "Gallery",
+    artists: "Artists",
+    info: "Info & FAQ",
+    contact: "Contact",
+    cta: "Request a date",
+  },
+  hero: {
+    kicker: "Tattoo Studio · Hanau",
+    title: "Black on skin.",
+    titleAccent: "Forever.",
+    text: "Custom blackwork, lettering and fineline in a modern studio in the heart of Hanau. Every piece is drawn for you — no catalogue, no copies.",
+    ctaPrimary: "Request a date",
+    ctaSecondary: "See the work",
+  },
+  marquee: ["Blackwork", "Lettering", "Fineline", "Realistic", "Chicano", "Cover-Up"],
+  intro: {
+    kicker: "The studio",
+    title: "Precision, hygiene, handwriting",
+    text: "PTAH stands for clean lines and uncompromising care. From the first sketch to the last stroke we build the piece with you — calm, private and without rushing.",
+    points: [
+      {
+        title: "Custom only",
+        text: "Every design is created for your idea and your anatomy.",
+      },
+      {
+        title: "Hygiene standard",
+        text: "Single-use materials, certified inks, documented disinfection.",
+      },
+      {
+        title: "Private sessions",
+        text: "Fixed appointments, your own space, no walk-in traffic.",
+      },
+    ],
+  },
+  styles: {
+    kicker: "Styles",
+    title: "What we work on",
+    text: "Our focus — anything else we are happy to discuss in a consultation.",
+    items: [
+      { name: "Blackwork", text: "Solid, graphic, high contrast." },
+      { name: "Lettering", text: "Blackletter, script, chicano fonts." },
+      { name: "Fineline", text: "Fine needle, delicate lines, lots of detail." },
+      { name: "Realistic", text: "Portraits and objects in black and grey." },
+      { name: "Chicano", text: "Smooth shading, roses, filigree." },
+      { name: "Cover-Up", text: "Rework the old instead of lasering it." },
+    ],
+  },
+  galleryTeaser: {
+    kicker: "Portfolio",
+    title: "Selected work",
+    text: "The gallery is filled continuously with current pieces from the studio.",
+    link: "See the full gallery",
+  },
+  gallery: {
+    title: "Gallery",
+    text: "Work from the studio. Images are added continuously — the latest pieces always land on Instagram and TikTok first.",
+    all: "All",
+    placeholder: "Image coming",
+    empty: "No images for this style yet.",
+    social: "Latest pieces on Instagram",
+  },
+  artists: {
+    title: "Artists",
+    text: "Two handwritings, one studio.",
+    bioPlaceholder: "Bio coming soon.",
+    specialty: "Focus",
+    book: "Request this artist",
+    list: [
+      {
+        name: "Tijeq",
+        role: "Resident artist",
+        specialty: "Lettering · Blackwork · Chicano",
+        bio: "Years of work on blackletter and large-scale black compositions. Known for hard edges and clean shading.",
+      },
+      {
+        name: "PTAH Crew",
+        role: "Guest & resident",
+        specialty: "Fineline · Realistic · Cover-Up",
+        bio: "Rotating guest artists add fineline and realistic work. Dates are coordinated through the studio.",
+      },
+    ],
+  },
+  info: {
+    title: "Info & FAQ",
+    text: "Everything you should know before your appointment.",
+    pricing: {
+      title: "Pricing & process",
+      items: [
+        { label: "Minimum", value: "from €100" },
+        { label: "Hourly rate", value: "€120 – 150" },
+        { label: "Day rate", value: "on request" },
+        { label: "Deposit", value: "€50 (deducted)" },
+      ],
+      note: "The final price depends on size, placement and detail. After your request you get a concrete estimate.",
+      steps: [
+        { title: "1 · Request", text: "Fill in the form, send your idea and references." },
+        { title: "2 · Consultation", text: "We settle size, placement, style and budget." },
+        { title: "3 · Sketch", text: "Your design is drawn and finalised on site." },
+        { title: "4 · Session", text: "Tattoo, aftercare briefing, check-up." },
+      ],
+    },
+    aftercare: {
+      title: "Aftercare",
+      items: [
+        "Keep the film on as instructed, then apply a thin layer of cream several times a day.",
+        "No pool, sauna or tanning bed for two weeks.",
+        "Do not pick scabs and avoid tight clothing over fresh work.",
+        "Avoid direct sun and use sunscreen consistently later on.",
+      ],
+    },
+    faq: {
+      title: "FAQ",
+      items: [
+        {
+          q: "How old do I have to be?",
+          a: "18 and up. Between 16 and 17 only with written consent and a guardian present.",
+        },
+        {
+          q: "Do I need a deposit?",
+          a: "Yes, €50 secures your slot and is deducted from the final price.",
+        },
+        {
+          q: "What if I have to cancel?",
+          a: "Free rescheduling up to 48 hours before. After that the deposit is forfeited.",
+        },
+        {
+          q: "How much does it hurt?",
+          a: "Depends on the spot. Ribs, elbows and the back of the knee are intense; forearm and thigh are far easier.",
+        },
+        {
+          q: "How hygienic is your setup?",
+          a: "Single-use needles and grips, sterile covers, certified inks and documented surface disinfection.",
+        },
+        {
+          q: "Can you cover an existing tattoo?",
+          a: "Often yes. Send a good daylight photo and we will tell you honestly what is possible.",
+        },
+      ],
+    },
+  },
+  contact: {
+    title: "Request a date",
+    text: "Tell us about your idea. The more detail you give, the faster you get a concrete answer.",
+    studioTitle: "Studio",
+    hoursTitle: "Opening hours",
+    hours: [
+      { day: "Mon – Fri", time: "11:00 – 19:00" },
+      { day: "Sat", time: "11:00 – 16:00" },
+      { day: "Sun", time: "closed" },
+    ],
+    hoursNote: "By appointment only.",
+    mapPlaceholder: "Map coming",
+    socialTitle: "Social",
+    form: {
+      name: "Name",
+      email: "Email",
+      phone: "Phone (optional)",
+      motif: "Your idea / motif",
+      motifPlaceholder: "What should it become? Tell us about your idea.",
+      bodyArea: "Placement",
+      size: "Approximate size",
+      style: "Style",
+      stylePlaceholder: "Choose a style",
+      preferredTime: "Preferred timeframe",
+      preferredTimePlaceholder: "e.g. from May, weekday evenings",
+      reference: "Reference link (optional)",
+      consent: "I agree that my details are stored in order to process this request.",
+      submit: "Send request",
+      submitting: "Sending …",
+      success: "Thanks! Your request landed — we will reply by email.",
+      error: "That did not work. Please try again or write to us directly.",
+      required: "Please fill this in",
+      invalidEmail: "Please enter a valid email",
+      consentRequired: "Without consent we cannot store the request",
+    },
+  },
+  footer: {
+    tagline: "Custom tattoos from Hanau.",
+    nav: "Navigation",
+    contact: "Contact",
+    rights: "All rights reserved.",
+    imprintNote: "Imprint and privacy policy coming soon.",
+  },
+  common: {
+    langLabel: "Language",
+  },
+};
+
+export const translations = { de, en };
+export type Translation = typeof de;

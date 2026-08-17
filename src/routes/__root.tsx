@@ -77,21 +77,48 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "PTAH Tattoo Hanau" },
+      {
+        name: "description",
+        content: "Modernes Tattoo Studio in Hanau — Custom Blackwork, Lettering und Fineline.",
+      },
+      { name: "author", content: "PTAH Tattoo" },
+      { property: "og:site_name", content: "PTAH Tattoo Hanau" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&family=UnifrakturCook:wght@700&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "TattooParlor",
+          name: "PTAH Tattoo",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Hauptstraße 12",
+            postalCode: "63450",
+            addressLocality: "Hanau",
+            addressCountry: "DE",
+          },
+          email: "info@ptah-tattoo.de",
+          sameAs: [
+            "https://www.instagram.com/ptah_tattoos",
+            "https://www.instagram.com/tijeq",
+            "https://www.tiktok.com/@tijeeq",
+          ],
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -102,7 +129,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="de">
       <head>
         <HeadContent />
       </head>
@@ -119,8 +146,17 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <LanguageProvider>
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1">
+            {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
+        <Toaster position="top-center" />
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }
