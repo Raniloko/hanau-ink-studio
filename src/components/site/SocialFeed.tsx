@@ -1,5 +1,9 @@
+import { useQuery } from "@tanstack/react-query";
 import { ArrowUpRight, Instagram, Music2 } from "lucide-react";
 import { useEffect } from "react";
+
+import { getInstagramFeed } from "@/lib/instagram.functions";
+
 
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
