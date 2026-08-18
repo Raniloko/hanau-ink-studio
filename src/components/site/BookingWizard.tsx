@@ -1,5 +1,5 @@
-import { CalendarClock, Check, ImageIcon, Loader2, MapPin } from "lucide-react";
-import { useState } from "react";
+import { CalendarClock, Check, ImageIcon, Loader2, MapPin, Upload, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 
 import { Checkbox } from "@/components/ui/checkbox";
@@ -37,6 +37,40 @@ export function BookingWizard() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [consent, setConsent] = useState(false);
+  const [photo, setPhoto] = useState<File | null>(null);
+  const [photoPreview, setPhotoPreview] = useState<string | null>(null);
+  const fileRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    if (!photo) {
+      setPhotoPreview(null);
+      return;
+    }
+    const url = URL.createObjectURL(photo);
+    setPhotoPreview(url);
+    return () => URL.revokeObjectURL(url);
+  }, [photo]);
+
+  function handlePhoto(file: File | null) {
+    if (!file) {
+      setPhoto(null);
+      return;
+    }
+    if (!file.type.startsWith("image/")) {
+      toast.error(b.photoInvalid);
+      return;
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      toast.error(b.photoTooLarge);
+      return;
+    }
+    setPhoto(file);
+  }
+
+  function clearPhoto() {
+    setPhoto(null);
+    if (fileRef.current) fileRef.current.value = "";
+  }
 
   const fieldClass = "mt-2 rounded-none border-border bg-card/60";
 
@@ -75,6 +109,22 @@ export function BookingWizard() {
     if (Object.keys(next).length > 0) return;
 
     setPending(true);
+
+    let photoRef = "";
+    if (photo) {
+      const ext = photo.name.split(".").pop()?.toLowerCase() ?? "jpg";
+      const path = `${crypto.randomUUID()}.${ext}`;
+      const { error: uploadError } = await supabase.storage
+        .from("tattoo-references")
+        .upload(path, photo, { contentType: photo.type, upsert: false });
+      if (uploadError) {
+        setPending(false);
+        toast.error(b.photoError);
+        return;
+      }
+      photoRef = `tattoo-references/${path}`;
+    }
+
     const { error } = await supabase.from("tattoo_requests").insert({
       name: name.trim(),
       email: email.trim(),
@@ -84,7 +134,7 @@ export function BookingWizard() {
       size: size.trim() || null,
       style: style || null,
       preferred_time: [days.join(", "), timeOfDay, timeframe.trim()].filter(Boolean).join(" · "),
-      reference_url: reference.trim() || null,
+      reference_url: [reference.trim(), photoRef].filter(Boolean).join(" · ") || null,
       locale,
     });
     setPending(false);
@@ -111,6 +161,7 @@ export function BookingWizard() {
     setEmail("");
     setPhone("");
     setConsent(false);
+    clearPhoto();
     setErrors({});
   }
 
@@ -315,6 +366,43 @@ export function BookingWizard() {
                         <p className="mt-1 text-xs text-destructive">{errors['placement']}</p>
                       ) : null}
                       <p className="mt-2 text-xs text-muted-foreground">{b.placementHint}</p>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="booking-photo">{b.photoLabel}</Label>
+                      <input
+                        ref={fileRef}
+                        id="booking-photo"
+                        type="file"
+                        accept="image/*"
+                        className="sr-only"
+                        onChange={(e) => handlePhoto(e.target.files?.[0] ?? null)}
+                      />
+                      {photoPreview ? (
+                        <div className="mt-3 flex flex-wrap items-center gap-4">
+                          <img
+                            src={photoPreview}
+                            alt=""
+                            className="h-24 w-24 border border-border object-cover"
+                          />
+                          <button
+                            type="button"
+                            onClick={clearPhoto}
+                            className="inline-flex items-center gap-2 border border-border px-4 py-2 text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                          >
+                            <X className="h-3.5 w-3.5" /> {b.photoRemove}
+                          </button>
+                        </div>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => fileRef.current?.click()}
+                          className="mt-3 inline-flex w-full items-center justify-center gap-2 border border-dashed border-border px-4 py-6 text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-primary hover:text-primary sm:w-auto sm:px-8"
+                        >
+                          <Upload className="h-4 w-4" /> {b.photoChoose}
+                        </button>
+                      )}
+                      <p className="mt-2 text-xs text-muted-foreground">{b.photoHint}</p>
                     </div>
 
                     <div>
