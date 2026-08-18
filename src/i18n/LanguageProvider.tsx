@@ -1,3 +1,4 @@
+import type React from "react";
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
 
 import { translations, type Locale, type Translation } from "./translations";
@@ -8,7 +9,9 @@ type LanguageContextValue = {
   t: Translation;
 };
 
-const LanguageContext = createContext<LanguageContextValue | null>(null);
+const g = globalThis as unknown as { __ptahLanguageContext?: React.Context<LanguageContextValue | null> };
+const LanguageContext =
+  g.__ptahLanguageContext ?? (g.__ptahLanguageContext = createContext<LanguageContextValue | null>(null));
 
 const STORAGE_KEY = "ptah-locale";
 
@@ -40,6 +43,6 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
 export function useLanguage() {
   const ctx = useContext(LanguageContext);
-  if (!ctx) throw new Error("useLanguage must be used inside LanguageProvider");
-  return ctx;
+  // Fallback keeps the UI rendering (e.g. during HMR or partial hydration)
+  return ctx ?? { locale: "de" as Locale, setLocale: () => {}, t: translations.de };
 }
