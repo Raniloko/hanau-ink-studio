@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 import heroAsset from "@/assets/studio-hero.png.asset.json";
 import { Logo } from "@/components/site/Logo";
-import { QuickContact } from "@/components/site/QuickContact";
+import { BookingWizard } from "@/components/site/BookingWizard";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { SocialFeed } from "@/components/site/SocialFeed";
@@ -199,7 +199,7 @@ function Index() {
         </div>
       </section>
 
-      <QuickContact />
+      <BookingWizard />
 
       <SocialFeed />
 
