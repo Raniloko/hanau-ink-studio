@@ -119,11 +119,13 @@ export function Header() {
           </Link>
 
           <button
+            ref={toggleRef}
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="relative inline-flex h-10 w-10 shrink-0 items-center justify-center border border-border lg:hidden"
-            aria-label="Menu"
+            className="relative inline-flex h-11 w-11 shrink-0 items-center justify-center border border-border lg:hidden"
+            aria-label={open ? t.nav.menuClose : t.nav.menuOpen}
             aria-expanded={open}
+            aria-controls="mobile-menu"
           >
             <span className="relative block h-4 w-5">
               {[0, 1, 2].map((i) => (
