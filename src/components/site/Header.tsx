@@ -158,16 +158,22 @@ export function Header() {
       >
         <div
           onClick={() => setOpen(false)}
+          aria-hidden="true"
           className={`absolute inset-0 bg-ink/40 transition-opacity duration-500 ${
             open ? "opacity-100" : "opacity-0"
           }`}
         />
         <aside
+          ref={panelRef}
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label={t.nav.menuLabel}
           className={`absolute right-0 top-0 flex h-full w-[86%] max-w-sm flex-col overflow-y-auto border-l border-border bg-card shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <nav className="flex flex-col px-6 py-4">
+          <nav aria-label={t.nav.menuLabel} className="flex flex-col px-6 py-4">
             {links.map((link) => (
               <Link
                 key={link.to}
