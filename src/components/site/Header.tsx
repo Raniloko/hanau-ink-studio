@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useLanguage } from "@/i18n/LanguageProvider";
 
@@ -8,20 +8,55 @@ import { Logo } from "./Logo";
 export function Header() {
   const { t, locale, setLocale } = useLanguage();
   const [open, setOpen] = useState(false);
+  const panelRef = useRef<HTMLElement | null>(null);
+  const toggleRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
-    if (!open) return;
-    const prev = document.body.style.overflow;
+    if (!open) {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+
+    const focusables = () =>
+      Array.from(
+        panelRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])',
+        ) ?? [],
+      ).filter((el) => el.offsetParent !== null);
+
+    focusables()[0]?.focus();
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const items = focusables();
+      if (items.length === 0) return;
+      const first = items[0]!;
+      const last = items[items.length - 1]!;
+      const active = document.activeElement as HTMLElement | null;
+      if (e.shiftKey && (active === first || !panelRef.current?.contains(active))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
+
     window.addEventListener("keydown", onKey);
     return () => {
-      document.body.style.overflow = prev;
+      document.body.style.overflow = prevOverflow;
       window.removeEventListener("keydown", onKey);
     };
   }, [open]);
+
 
 
   const links = [
@@ -84,11 +119,13 @@ export function Header() {
           </Link>
 
           <button
+            ref={toggleRef}
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="relative inline-flex h-10 w-10 shrink-0 items-center justify-center border border-border lg:hidden"
-            aria-label="Menu"
+            className="relative inline-flex h-11 w-11 shrink-0 items-center justify-center border border-border lg:hidden"
+            aria-label={open ? t.nav.menuClose : t.nav.menuOpen}
             aria-expanded={open}
+            aria-controls="mobile-menu"
           >
             <span className="relative block h-4 w-5">
               {[0, 1, 2].map((i) => (
@@ -121,16 +158,22 @@ export function Header() {
       >
         <div
           onClick={() => setOpen(false)}
+          aria-hidden="true"
           className={`absolute inset-0 bg-ink/40 transition-opacity duration-500 ${
             open ? "opacity-100" : "opacity-0"
           }`}
         />
         <aside
+          ref={panelRef}
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label={t.nav.menuLabel}
           className={`absolute right-0 top-0 flex h-full w-[86%] max-w-sm flex-col overflow-y-auto border-l border-border bg-card shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <nav className="flex flex-col px-6 py-4">
+          <nav aria-label={t.nav.menuLabel} className="flex flex-col px-6 py-4">
             {links.map((link) => (
               <Link
                 key={link.to}

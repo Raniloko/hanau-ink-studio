@@ -20,6 +20,9 @@ const de = {
     info: "Info & FAQ",
     contact: "Kontakt",
     cta: "Termin anfragen",
+    menuOpen: "Menü öffnen",
+    menuClose: "Menü schließen",
+    menuLabel: "Hauptnavigation",
   },
   hero: {
     kicker: "Tattoo Studio · Hanau",
@@ -219,6 +222,9 @@ const en: typeof de = {
     info: "Info & FAQ",
     contact: "Contact",
     cta: "Request a date",
+    menuOpen: "Open menu",
+    menuClose: "Close menu",
+    menuLabel: "Main navigation",
   },
   hero: {
     kicker: "Tattoo Studio · Hanau",
