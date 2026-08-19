@@ -51,7 +51,13 @@ export function Footer() {
                 {t.nav.contact}
               </Link>
             </li>
+            <li>
+              <Link to="/auth" className="transition-colors hover:text-foreground">
+                Intern
+              </Link>
+            </li>
           </ul>
+
         </div>
 
         <div>
