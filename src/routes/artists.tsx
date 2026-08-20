@@ -1,6 +1,7 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { Instagram, Music2 } from "lucide-react";
 
+import tijeqPortrait from "@/assets/tijeq-portrait.jpg.asset.json";
 import { PlaceholderFrame } from "@/components/site/PlaceholderFrame";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { useLanguage } from "@/i18n/LanguageProvider";
