@@ -26,7 +26,7 @@ const de = {
   },
   hero: {
     kicker: "Tattoo Studio · Hanau",
-    title: "Schwarz auf Haut.",
+    title: "Deine Idee.",
     titleAccent: "Für immer.",
     text: "Custom Blackwork, Lettering und Fineline in einem modernen Studio mitten in Hanau. Jedes Motiv wird für dich gezeichnet – kein Katalog, keine Kopie.",
     ctaPrimary: "Termin anfragen",
@@ -271,7 +271,7 @@ const en: typeof de = {
   },
   hero: {
     kicker: "Tattoo Studio · Hanau",
-    title: "Black on skin.",
+    title: "Your idea.",
     titleAccent: "Forever.",
     text: "Custom blackwork, lettering and fineline in a modern studio in the heart of Hanau. Every piece is drawn for you — no catalogue, no copies.",
     ctaPrimary: "Request a date",
