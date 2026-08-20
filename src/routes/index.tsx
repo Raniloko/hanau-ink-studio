@@ -43,7 +43,7 @@ function Index() {
 
   return (
     <div>
-      <section className="relative grain min-h-[88vh] overflow-hidden bg-ink">
+      <section className="relative grain min-h-[88vh] overflow-hidden bg-background">
         <img
           src={heroAsset.url}
           alt="Innenansicht des PTAH Tattoo Studios in Hanau"
@@ -53,14 +53,14 @@ function Index() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, color-mix(in oklab, var(--ink) 55%, transparent) 0%, color-mix(in oklab, var(--ink) 25%, transparent) 38%, color-mix(in oklab, var(--ink) 82%, transparent) 78%, color-mix(in oklab, var(--ink) 78%, transparent) 93%, var(--background) 100%)",
+              "linear-gradient(180deg, color-mix(in oklab, var(--background) 70%, transparent) 0%, color-mix(in oklab, var(--background) 45%, transparent) 35%, color-mix(in oklab, var(--background) 85%, transparent) 75%, var(--background) 100%)",
           }}
         />
         <div
           className="absolute inset-x-0 top-0 h-40"
           style={{
             background:
-              "radial-gradient(60% 120% at 50% 0%, color-mix(in oklab, var(--primary) 22%, transparent), transparent)",
+              "radial-gradient(60% 120% at 50% 0%, color-mix(in oklab, var(--primary) 16%, transparent), transparent)",
           }}
         />
         <div className="relative mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-end px-5 pb-24 pt-28">
@@ -68,13 +68,13 @@ function Index() {
             <p className="font-display text-[0.65rem] uppercase tracking-[0.5em] text-primary">
               {t.hero.kicker}
             </p>
-            <h1 className="mt-6 font-display text-5xl uppercase leading-[0.95] tracking-tight text-on-dark sm:text-7xl">
+            <h1 className="mt-6 font-display text-5xl uppercase leading-[0.95] tracking-tight text-foreground sm:text-7xl">
               {t.hero.title}
-              <span className="mt-2 block font-gothic text-6xl normal-case tracking-normal text-primary text-glow sm:text-8xl">
+              <span className="mt-2 block font-gothic text-6xl normal-case tracking-normal text-primary sm:text-8xl">
                 {t.hero.titleAccent}
               </span>
             </h1>
-            <p className="mt-7 max-w-xl text-sm leading-relaxed text-on-dark-muted sm:text-base">
+            <p className="mt-7 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
               {t.hero.text}
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
