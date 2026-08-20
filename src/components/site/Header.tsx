@@ -18,7 +18,10 @@ export function Header() {
     }
 
     const prevOverflow = document.body.style.overflow;
+    const prevPad = document.body.style.paddingRight;
+    const scrollbar = window.innerWidth - document.documentElement.clientWidth;
     document.body.style.overflow = "hidden";
+    if (scrollbar > 0) document.body.style.paddingRight = `${scrollbar}px`;
 
     const focusables = () =>
       Array.from(
