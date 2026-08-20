@@ -1,7 +1,6 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { Instagram, Music2 } from "lucide-react";
 
-import tijeqPortrait from "@/assets/tijeq-portrait.jpg.asset.json";
 import { PlaceholderFrame } from "@/components/site/PlaceholderFrame";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { useLanguage } from "@/i18n/LanguageProvider";
@@ -44,7 +43,7 @@ function ArtistsPage() {
             {index === 0 ? (
               <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
                 <img
-                  src={tijeqPortrait.url}
+                  src="/__l5e/assets-v1/3cf0f582-c77b-4e43-ac70-22e753448de6/tijeq-portrait.jpg"
                   alt={`Portrait von ${artist.name}, Tattoo Artist bei PTAH Hanau`}
                   loading="lazy"
                   className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105"
