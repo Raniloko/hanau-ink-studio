@@ -31,7 +31,7 @@ export function Header() {
         ) ?? [],
       ).filter((el) => el.offsetParent !== null);
 
-    focusables()[0]?.focus();
+    const focusTimer = window.setTimeout(() => focusables()[0]?.focus({ preventScroll: true }), 380);
 
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -56,7 +56,9 @@ export function Header() {
 
     window.addEventListener("keydown", onKey);
     return () => {
+      window.clearTimeout(focusTimer);
       document.body.style.overflow = prevOverflow;
+      document.body.style.paddingRight = prevPad;
       window.removeEventListener("keydown", onKey);
     };
   }, [open]);
@@ -163,7 +165,7 @@ export function Header() {
         <div
           onClick={() => setOpen(false)}
           aria-hidden="true"
-          className={`absolute inset-0 bg-ink/40 transition-opacity duration-500 ${
+          className={`absolute inset-0 bg-ink/40 transition-opacity duration-300 ${
             open ? "opacity-100" : "opacity-0"
           }`}
         />
@@ -173,7 +175,7 @@ export function Header() {
           role="dialog"
           aria-modal="true"
           aria-label={t.nav.menuLabel}
-          className={`absolute right-0 top-0 flex h-full w-[86%] max-w-sm flex-col overflow-y-auto border-l border-border bg-card shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          className={`absolute right-0 top-0 flex h-full w-[86%] max-w-sm transform-gpu flex-col overflow-y-auto border-l border-border bg-card shadow-2xl transition-transform duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)] [backface-visibility:hidden] [will-change:transform] ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
