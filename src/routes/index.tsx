@@ -87,7 +87,7 @@ function Index() {
               </Link>
               <Link
                 to="/gallery"
-                className="inline-flex items-center gap-2 border border-on-dark-muted/40 px-6 py-3 font-display text-[0.7rem] uppercase tracking-[0.25em] text-on-dark backdrop-blur-sm transition-colors hover:border-primary hover:text-primary"
+                className="inline-flex items-center gap-2 border border-border px-6 py-3 font-display text-[0.7rem] uppercase tracking-[0.25em] text-foreground backdrop-blur-sm transition-colors hover:border-primary hover:text-primary"
               >
                 {t.hero.ctaSecondary}
               </Link>
