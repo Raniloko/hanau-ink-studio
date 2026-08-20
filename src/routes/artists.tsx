@@ -40,7 +40,18 @@ function ArtistsPage() {
       <div className="mt-12 grid gap-10 lg:grid-cols-2">
         {t.artists.list.map((artist, index) => (
           <article key={artist.name} className="soft-panel lift border border-border">
-            <PlaceholderFrame label={t.gallery.placeholder} ratio="aspect-[4/3]" />
+            {index === 0 ? (
+              <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
+                <img
+                  src={tijeqPortrait.url}
+                  alt={`Portrait von ${artist.name}, Tattoo Artist bei PTAH Hanau`}
+                  loading="lazy"
+                  className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+            ) : (
+              <PlaceholderFrame label={t.gallery.placeholder} ratio="aspect-[4/3]" />
+            )}
             <div className="p-7">
               <p className="font-display text-[0.6rem] uppercase tracking-[0.3em] text-primary">
                 {artist.role}
