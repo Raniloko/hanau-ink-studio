@@ -1,7 +1,9 @@
 import { Link } from "@tanstack/react-router";
+import { Instagram, Music2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import { useLanguage } from "@/i18n/LanguageProvider";
+import { STUDIO } from "@/i18n/translations";
 
 import { Logo } from "./Logo";
 
@@ -14,11 +16,15 @@ export function Header() {
   useEffect(() => {
     if (!open) {
       document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
       return;
     }
 
     const prevOverflow = document.body.style.overflow;
+    const prevPad = document.body.style.paddingRight;
+    const scrollbar = window.innerWidth - document.documentElement.clientWidth;
     document.body.style.overflow = "hidden";
+    if (scrollbar > 0) document.body.style.paddingRight = `${scrollbar}px`;
 
     const focusables = () =>
       Array.from(
@@ -27,7 +33,7 @@ export function Header() {
         ) ?? [],
       ).filter((el) => el.offsetParent !== null);
 
-    focusables()[0]?.focus();
+    const focusTimer = window.setTimeout(() => focusables()[0]?.focus({ preventScroll: true }), 380);
 
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -52,7 +58,9 @@ export function Header() {
 
     window.addEventListener("keydown", onKey);
     return () => {
+      window.clearTimeout(focusTimer);
       document.body.style.overflow = prevOverflow;
+      document.body.style.paddingRight = prevPad;
       window.removeEventListener("keydown", onKey);
     };
   }, [open]);
@@ -111,6 +119,27 @@ export function Header() {
             ))}
           </div>
 
+          <div className="hidden items-center gap-1 sm:flex">
+            <a
+              href={STUDIO.instagramStudio}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram @ptah_tattoos"
+              className="inline-flex h-9 w-9 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+            >
+              <Instagram className="h-4 w-4" />
+            </a>
+            <a
+              href={STUDIO.tiktok}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="TikTok @tijeeq"
+              className="inline-flex h-9 w-9 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+            >
+              <Music2 className="h-4 w-4" />
+            </a>
+          </div>
+
           <Link
             to="/contact"
             className="hidden border border-primary px-4 py-2 font-display text-[0.65rem] uppercase tracking-[0.25em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:inline-flex"
@@ -159,7 +188,7 @@ export function Header() {
         <div
           onClick={() => setOpen(false)}
           aria-hidden="true"
-          className={`absolute inset-0 bg-ink/40 transition-opacity duration-500 ${
+          className={`absolute inset-0 bg-ink/40 transition-opacity duration-300 ${
             open ? "opacity-100" : "opacity-0"
           }`}
         />
@@ -169,7 +198,7 @@ export function Header() {
           role="dialog"
           aria-modal="true"
           aria-label={t.nav.menuLabel}
-          className={`absolute right-0 top-0 flex h-full w-[86%] max-w-sm flex-col overflow-y-auto border-l border-border bg-card shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          className={`absolute right-0 top-0 flex h-full w-[86%] max-w-sm transform-gpu flex-col overflow-y-auto border-l border-border bg-card shadow-2xl transition-transform duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)] [backface-visibility:hidden] [will-change:transform] ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -209,6 +238,28 @@ export function Header() {
             >
               {t.nav.cta}
             </Link>
+            <div className="mt-6 flex items-center gap-2">
+              <a
+                href={STUDIO.instagramStudio}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setOpen(false)}
+                className="inline-flex flex-1 items-center justify-center gap-2 border border-border py-3 font-display text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+              >
+                <Instagram className="h-4 w-4" />
+                Instagram
+              </a>
+              <a
+                href={STUDIO.tiktok}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setOpen(false)}
+                className="inline-flex flex-1 items-center justify-center gap-2 border border-border py-3 font-display text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+              >
+                <Music2 className="h-4 w-4" />
+                TikTok
+              </a>
+            </div>
           </nav>
         </aside>
       </div>

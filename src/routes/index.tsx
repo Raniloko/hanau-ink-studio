@@ -11,7 +11,6 @@ import { STUDIO } from "@/i18n/translations";
 import { GALLERY } from "@/lib/gallery";
 
 // Bild-Zuordnung zu den Styles: Blackwork, Lettering, Fineline, Realistic, Chicano, Cover-Up
-const STYLE_IMAGES = [GALLERY[4], GALLERY[2], GALLERY[5], GALLERY[1], GALLERY[0], GALLERY[3]];
 
 
 
@@ -134,19 +133,9 @@ function Index() {
           </Reveal>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {t.styles.items.map((item, index) => {
-              const image = STYLE_IMAGES[index] ?? GALLERY[index % GALLERY.length]!;
               return (
                 <Reveal key={item.name} delay={index * 90}>
                   <div className="sheen lift group h-full overflow-hidden border border-border bg-card">
-                    <div className="relative aspect-[4/3] overflow-hidden bg-secondary p-3">
-                      <img
-                        src={image.url}
-                        alt={image.alt}
-                        loading="lazy"
-                        className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
-                      />
-                    </div>
-
                     <div className="p-6">
                       <span className="font-display text-[0.6rem] uppercase tracking-[0.3em] text-primary">
                         {String(index + 1).padStart(2, "0")}
