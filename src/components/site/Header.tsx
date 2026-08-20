@@ -14,6 +14,7 @@ export function Header() {
   useEffect(() => {
     if (!open) {
       document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
       return;
     }
 
