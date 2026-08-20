@@ -1,7 +1,9 @@
 import { Link } from "@tanstack/react-router";
+import { Instagram, Music2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import { useLanguage } from "@/i18n/LanguageProvider";
+import { STUDIO } from "@/i18n/translations";
 
 import { Logo } from "./Logo";
 
@@ -117,6 +119,27 @@ export function Header() {
             ))}
           </div>
 
+          <div className="hidden items-center gap-1 sm:flex">
+            <a
+              href={STUDIO.instagramStudio}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram @ptah_tattoos"
+              className="inline-flex h-9 w-9 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+            >
+              <Instagram className="h-4 w-4" />
+            </a>
+            <a
+              href={STUDIO.tiktok}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="TikTok @tijeeq"
+              className="inline-flex h-9 w-9 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+            >
+              <Music2 className="h-4 w-4" />
+            </a>
+          </div>
+
           <Link
             to="/contact"
             className="hidden border border-primary px-4 py-2 font-display text-[0.65rem] uppercase tracking-[0.25em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:inline-flex"
@@ -215,6 +238,28 @@ export function Header() {
             >
               {t.nav.cta}
             </Link>
+            <div className="mt-6 flex items-center gap-2">
+              <a
+                href={STUDIO.instagramStudio}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setOpen(false)}
+                className="inline-flex flex-1 items-center justify-center gap-2 border border-border py-3 font-display text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+              >
+                <Instagram className="h-4 w-4" />
+                Instagram
+              </a>
+              <a
+                href={STUDIO.tiktok}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setOpen(false)}
+                className="inline-flex flex-1 items-center justify-center gap-2 border border-border py-3 font-display text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+              >
+                <Music2 className="h-4 w-4" />
+                TikTok
+              </a>
+            </div>
           </nav>
         </aside>
       </div>
