@@ -1,7 +1,6 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { Instagram, Music2 } from "lucide-react";
 
-import { PlaceholderFrame } from "@/components/site/PlaceholderFrame";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { STUDIO } from "@/i18n/translations";
@@ -40,18 +39,18 @@ function ArtistsPage() {
       <div className="mt-12 grid gap-10 lg:grid-cols-2">
         {t.artists.list.map((artist, index) => (
           <article key={artist.name} className="soft-panel lift border border-border">
-            {index === 0 ? (
-              <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
-                <img
-                  src="/__l5e/assets-v1/3cf0f582-c77b-4e43-ac70-22e753448de6/tijeq-portrait.jpg"
-                  alt={`Portrait von ${artist.name}, Tattoo Artist bei PTAH Hanau`}
-                  loading="lazy"
-                  className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105"
-                />
-              </div>
-            ) : (
-              <PlaceholderFrame label={t.gallery.placeholder} ratio="aspect-[4/3]" />
-            )}
+            <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
+              <img
+                src={
+                  index === 0
+                    ? "/__l5e/assets-v1/3cf0f582-c77b-4e43-ac70-22e753448de6/tijeq-portrait.jpg"
+                    : "/__l5e/assets-v1/66517466-4244-4aaf-97c6-0702645fab50/ano-portrait.jpg"
+                }
+                alt={`Portrait von ${artist.name}, Tattoo Artist bei PTAH Hanau`}
+                loading="lazy"
+                className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105"
+              />
+            </div>
             <div className="p-7">
               <p className="font-display text-[0.6rem] uppercase tracking-[0.3em] text-primary">
                 {artist.role}
