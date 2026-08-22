@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, MapPin, Music2 } from "lucide-react";
+import { Instagram, MapPin } from "lucide-react";
 
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { STUDIO } from "@/i18n/translations";
@@ -36,15 +36,6 @@ export function Footer() {
             >
               <Instagram className="h-4 w-4" />
               @tijeq
-            </a>
-            <a
-              href={STUDIO.tiktok}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 border border-border px-4 py-2 font-display text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-primary hover:text-primary"
-            >
-              <Music2 className="h-4 w-4" />
-              @tijeeq
             </a>
           </div>
           <p className="mt-6 font-gothic text-4xl text-primary/70">Ptah</p>
@@ -111,17 +102,6 @@ export function Footer() {
                 className="transition-colors hover:text-foreground"
               >
                 @ptah_tattoos
-              </a>
-            </li>
-            <li className="flex items-center gap-2">
-              <Music2 className="h-4 w-4 shrink-0 text-primary" />
-              <a
-                href={STUDIO.tiktok}
-                target="_blank"
-                rel="noreferrer"
-                className="transition-colors hover:text-foreground"
-              >
-                @tijeeq
               </a>
             </li>
           </ul>
