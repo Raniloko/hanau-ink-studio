@@ -7,6 +7,7 @@ export const STUDIO = {
   zip: "63450 Hanau",
   instagramStudio: "https://www.instagram.com/ptah_tattoos",
   instagramArtist: "https://www.instagram.com/tijeq",
+  instagramAno: "https://www.instagram.com/anotattoo",
   tiktok: "https://www.tiktok.com/@tijeeq",
 };
 
@@ -98,10 +99,10 @@ const de = {
         bio: "Arbeitet seit Jahren an Blackletter und großflächigen schwarzen Kompositionen. Bekannt für harte Kanten und sauberes Shading.",
       },
       {
-        name: "PTAH Crew",
+        name: "Ano",
         role: "Guest & Resident",
         specialty: "Fineline · Realistic · Cover-Up",
-        bio: "Wechselnde Guest-Artists ergänzen das Studio um Fineline und Realistic. Termine werden über das Studio koordiniert.",
+        bio: "Ano ergänzt das Studio um Fineline und Realistic. Termine werden über das Studio koordiniert.",
       },
     ],
   },
@@ -343,10 +344,10 @@ const en: typeof de = {
         bio: "Years of work on blackletter and large-scale black compositions. Known for hard edges and clean shading.",
       },
       {
-        name: "PTAH Crew",
+        name: "Ano",
         role: "Guest & resident",
         specialty: "Fineline · Realistic · Cover-Up",
-        bio: "Rotating guest artists add fineline and realistic work. Dates are coordinated through the studio.",
+        bio: "Ano adds fineline and realistic work to the studio. Dates are coordinated through the studio.",
       },
     ],
   },
