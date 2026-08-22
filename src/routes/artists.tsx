@@ -56,13 +56,6 @@ function ArtistsPage() {
                 {artist.role}
               </p>
               <h2 className="mt-3 font-gothic text-4xl text-foreground">{artist.name}</h2>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{artist.bio}</p>
-              <dl className="mt-6 border-t border-border pt-5">
-                <dt className="font-display text-[0.6rem] uppercase tracking-[0.3em] text-muted-foreground">
-                  {t.artists.specialty}
-                </dt>
-                <dd className="mt-2 text-sm text-foreground">{artist.specialty}</dd>
-              </dl>
               {index === 0 ? (
                 <div className="mt-6 flex flex-wrap gap-2">
                   {socials.map((social) => (
