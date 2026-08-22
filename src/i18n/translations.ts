@@ -3,7 +3,7 @@ export type Locale = "de" | "en";
 export const STUDIO = {
   name: "PTAH TATTOO",
   city: "Hanau",
-  street: "Banger Straße 15",
+  street: "Bangert Straße 15",
   zip: "63450 Hanau",
   instagramStudio: "https://www.instagram.com/ptah_tattoos",
   instagramArtist: "https://www.instagram.com/tijeq",
