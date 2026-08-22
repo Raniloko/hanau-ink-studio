@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Instagram, Mail, MapPin, Music2, Phone } from "lucide-react";
+import { Instagram, MapPin, Music2 } from "lucide-react";
 
 import { BookingWizard } from "@/components/site/BookingWizard";
 import { useLanguage } from "@/i18n/LanguageProvider";
@@ -49,18 +49,6 @@ function ContactPage() {
                   <br />
                   {STUDIO.zip}
                 </span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 shrink-0 text-primary" />
-                <a href={`mailto:${STUDIO.email}`} className="hover:text-foreground">
-                  {STUDIO.email}
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 shrink-0 text-primary" />
-                <a href={`tel:${STUDIO.phone.replace(/\s/g, "")}`} className="hover:text-foreground">
-                  {STUDIO.phone}
-                </a>
               </li>
             </ul>
           </div>

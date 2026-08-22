@@ -3,10 +3,8 @@ export type Locale = "de" | "en";
 export const STUDIO = {
   name: "PTAH TATTOO",
   city: "Hanau",
-  street: "Hauptstraße 12",
+  street: "Banger Straße 15",
   zip: "63450 Hanau",
-  email: "info@ptah-tattoo.de",
-  phone: "+49 6181 000000",
   instagramStudio: "https://www.instagram.com/ptah_tattoos",
   instagramArtist: "https://www.instagram.com/tijeq",
   tiktok: "https://www.tiktok.com/@tijeeq",
