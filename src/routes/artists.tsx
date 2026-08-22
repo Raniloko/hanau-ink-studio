@@ -80,13 +80,13 @@ function ArtistsPage() {
                 </div>
               ) : (
                 <a
-                  href={STUDIO.instagramStudio}
+                  href={STUDIO.instagramAno}
                   target="_blank"
                   rel="noreferrer"
                   className="mt-6 inline-flex items-center gap-2 border border-border px-4 py-2 font-display text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-primary hover:text-primary"
                 >
                   <Instagram className="h-3.5 w-3.5" />
-                  @ptah_tattoos
+                  @anotattoo
                 </a>
               )}
               <div className="mt-6">
