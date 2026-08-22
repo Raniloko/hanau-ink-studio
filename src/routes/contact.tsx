@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Instagram, Mail, MapPin, Music2, Phone } from "lucide-react";
+import { Instagram, MapPin, Music2 } from "lucide-react";
 
 import { BookingWizard } from "@/components/site/BookingWizard";
 import { useLanguage } from "@/i18n/LanguageProvider";
