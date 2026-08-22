@@ -50,18 +50,6 @@ function ContactPage() {
                   {STUDIO.zip}
                 </span>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 shrink-0 text-primary" />
-                <a href={`mailto:${STUDIO.email}`} className="hover:text-foreground">
-                  {STUDIO.email}
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 shrink-0 text-primary" />
-                <a href={`tel:${STUDIO.phone.replace(/\s/g, "")}`} className="hover:text-foreground">
-                  {STUDIO.phone}
-                </a>
-              </li>
             </ul>
           </div>
 
