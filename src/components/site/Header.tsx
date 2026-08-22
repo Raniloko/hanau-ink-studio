@@ -129,15 +129,6 @@ export function Header() {
             >
               <Instagram className="h-4 w-4" />
             </a>
-            <a
-              href={STUDIO.tiktok}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="TikTok @tijeeq"
-              className="inline-flex h-9 w-9 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
-            >
-              <Music2 className="h-4 w-4" />
-            </a>
           </div>
 
           <Link
@@ -248,16 +239,6 @@ export function Header() {
               >
                 <Instagram className="h-4 w-4" />
                 Instagram
-              </a>
-              <a
-                href={STUDIO.tiktok}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => setOpen(false)}
-                className="inline-flex flex-1 items-center justify-center gap-2 border border-border py-3 font-display text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-primary hover:text-primary"
-              >
-                <Music2 className="h-4 w-4" />
-                TikTok
               </a>
             </div>
           </nav>
